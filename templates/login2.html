@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<style>
+
+
+label {
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+background-color: #000000;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 100px 100px, linear-gradient(#3e3e4b 8px, transparent 8px) 0 -4px, linear-gradient(90deg, #3e3e4b 8px, #000000 8px) -4px 0;
+background-size: 200px 200px, 200px 200px, 100px 100px, 100px 100px;
+}
+
+
+
+center {
+  border-radius: 25px;
+  background: black;
+  border: 2px solid White;
+  padding: 20px;
+  width: 500px;
+  height: 350px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-170px;
+  margin-left:-270px;
+  opacity: 0.9;
+}
+</style>
+
+</head>
+<body>
+<div>
+
+<br><br><br><br><br><br><br><br><br>
+<center>
+    <h1>QUT Timetable Collaborator</h1>
+<label for="email">Email</label><br>
+<input type="text" id="email" name="email" size="41" placeholder="example@qut.edu.au" required><br><br>
+
+<label for="pwd">Password</label><br>
+<input type="password" id="pwd" name="pwd" size="41" placeholder="8 to 12 characters" required><br><br>
+<button  type="button" class="btn btn-primary">Login</button>
+</center>
+
+</div>
+</body>
+</html>
