@@ -11,7 +11,7 @@ TIMETABLE_STRING = '''Class ID,Unit ID,Class Name,Class Type,Day,Start,End,Locat
 
 
 def get_db():
-    return sqlite3.connect("database.db")
+    return sqlite3.connect("../instance/database.db")
 
 
 def init_db():
