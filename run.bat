@@ -4,6 +4,8 @@ cd timetable
 
 if "%1"=="init-db" (
     python -c "from timetable_lib import init_db; init_db()"
+) else if "%1"=="test" (
+    python -m unittest timetable_lib/test_lib.py
 ) else if "%1"=="web" (
     set FLASK_APP=web
     set FLASK_ENV=development

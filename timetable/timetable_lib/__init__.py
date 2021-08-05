@@ -2,13 +2,6 @@ import csv
 from io import StringIO
 import sqlite3
 
-TIMETABLE_STRING = '''Class ID,Unit ID,Class Name,Class Type,Day,Start,End,Location,Staff
-4,CAB201,Practical - On Campus Class Weeks 1 - 13 [Internal Mode Only],PRC,Mon,02:00pm,04:00pm,GP S517,""
-2,CAB240,Tutorial - On Campus Class Weeks 1 - 13 [Internal Mode Only],TUT,Mon,10:30am,12:00pm,GP S305,""
-1,CAB202,Lecture Q&A Session - Online via ZOOM [Internal Mode Only],LEC,Mon,09:00am,10:00am,GP VIRTOLT08,"Feras Dayoub, Luis Mejias Alvarez"
-18,CAB202,Tutorial - On Campus Class [Internal Mode Only],TUT,Fri,09:00am,11:00am,GP G216,""
-5,IAB207,Tutorial - On Campus Class Weeks 2 - 13 [Internal Mode Only],TUT,Tue,10:00am,12:00pm,GP S507,""'''
-
 
 def get_db():
     return sqlite3.connect("../instance/database.db")
@@ -21,6 +14,8 @@ def init_db():
 
 
 class Timetable:
+    '''Create a wrapper around a list of sessions
+    from a string supplied by the Timetable Planner'''
     def __init__(self, timetable_string):
         self.__timetable_string = timetable_string
 
