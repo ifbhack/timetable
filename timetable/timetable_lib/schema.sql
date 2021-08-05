@@ -1,4 +1,12 @@
 BEGIN TRANSACTION;
+
+-- Drop all tables
+DROP TABLE IF EXISTS "HaveUnit";
+DROP TABLE IF EXISTS "Lesssons";
+DROP TABLE IF EXISTS "Unit";
+DROP TABLE IF EXISTS "Student";
+
+-- Create tables
 CREATE TABLE IF NOT EXISTS "Student" (
 	"studentID"	INTEGER NOT NULL UNIQUE,
 	"Name"	INTEGER NOT NULL,
@@ -28,6 +36,8 @@ CREATE TABLE IF NOT EXISTS "Lessons" (
 	FOREIGN KEY("unitPK") REFERENCES "Unit"("unitPK"),
 	PRIMARY KEY("lessonID" AUTOINCREMENT)
 );
+
+-- Populate tables
 INSERT INTO "Student" ("studentID","Name","Contact") VALUES (1,'John Lenkins','hola.scam@yahoo.com');
 INSERT INTO "Student" ("studentID","Name","Contact") VALUES (2,'Rebecca Sebastien','rebecca@gmail.com');
 INSERT INTO "HaveUnit" ("studentID","lessonID") VALUES (1,1);
@@ -36,4 +46,5 @@ INSERT INTO "Unit" ("unitPK","unitID","unitName") VALUES (2,'IFB105','Database M
 INSERT INTO "Unit" ("unitPK","unitID","unitName") VALUES (3,'IFB103','IT Design');
 INSERT INTO "Unit" ("unitPK","unitID","unitName") VALUES (4,'IFB102','Introduction to Computer Systems');
 INSERT INTO "Lessons" ("lessonID","unitPK","unitRoom","day","start","end") VALUES (1,1,'GP-D301','THU',13,15);
+
 COMMIT;
