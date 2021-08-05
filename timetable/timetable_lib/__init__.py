@@ -27,7 +27,7 @@ class Timetable:
 
     def __next__(self):
         line = next(self.csv_reader)
-        return Lesson(*line)
+        return TimetablePlannerLesson(*line)
 
     def get_contact_info(self, db):
         return [lesson.get_contact_info(db) for lesson in self]
@@ -37,10 +37,30 @@ class Timetable:
 
 
 class Lesson:
+    def __init__(self, lesson_id, unit_id):
+        self.lession_id = lesson_id
+        self.unit_id = unit_id
+
+    def upload_contact_info(self, db, contact_info):
+        pass
+
+    def get_contact_info(self, db):
+        cur = db.cursor()
+        sql = """
+            SELECT name, contact FROM Student s
+            LEFT JOIN HaveUnit h ON h.studentID=s.studentID
+            LEFT JOIN Lessons l ON l.lessonID=h.lessonID
+            LEFT JOIN Unit u ON u.unitPK=l.unitPK
+            WHERE u.unitID=? AND h.lessonID=?"""  # this doesn't work
+        cur.execute(sql, (self.unit_id, self.lession_id))
+        print(cur.fetchall())
+        return cur.fetchall()
+
+
+class TimetablePlannerLesson(Lesson):
     def __init__(self, class_id, unit_id, class_name, class_type, day, start,
                  end, location, staff):
-        self.class_id = class_id
-        self.unit_id = unit_id
+        super().__init__(class_id, unit_id)
         self.class_name = class_name
         self.class_type = class_type
         self.day = day
@@ -62,10 +82,3 @@ class Lesson:
                     self.staff == other.staff)
         else:
             return False
-
-    def upload_contact_info(self, db, contact_info):
-        pass
-
-    def get_contact_info(self, db):
-        # db fetch
-        return self.class_name # temp
