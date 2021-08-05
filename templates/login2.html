@@ -1,4 +1,6 @@
 {% extends "baseTemplate.html" %}
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,25 +15,17 @@
 {% block content %}
 </head>
 <body>
-<!-- css class call-->
 <div class="box">
 
 
 <center>
-
     <h1>QUT Timetable Collaborator</h1>
-<!-- email field html -->
 <label for="email">Email</label><br>
 <input type="text" id="email" name="email" size="41" placeholder="example@qut.edu.au" required><br><br>
 
-<!-- password field-->
-
 <label for="pwd">Password</label><br>
 <input type="password" id="pwd" name="pwd" size="41" placeholder="8 to 12 characters" required><br><br>
-<button type="submit"><a class="nav-link item"  href="{{ url_for('home') }}">Login</button>
-
-
-
+<button  type="button" class="btn btn-primary">Login</button>
 </center>
 
 </div>
